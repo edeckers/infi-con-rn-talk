@@ -1,37 +1,16 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
-import FancyCounter from "./Components/FancyCounter";
-import { WhereContext } from "./Contexts/WhereContext";
+import { Scene, Router, Stack } from "react-native-router-flux";
 
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
-});
+import MainScreen from "./Components/MainScreen";
+import SecondScreen from "./Components/SecondScreen";
 
 export default class App extends Component<{}> {
   public render = () => (
-    <WhereContext.Provider value="InfiContext">
-      <View style={styles.container}>
-        <FancyCounter />
-        <Text style={styles.instructions}>To get started, edit App.tsx</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    </WhereContext.Provider>
+    <Router>
+      <Stack key="root" hideNavBar={true}>
+        <Scene key="login" component={MainScreen} title="Main" initial={true} />
+        <Scene key="second" component={SecondScreen} title="Second" />
+      </Stack>
+    </Router>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "orange"
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#ffffff",
-    marginBottom: 5
-  }
-});
