@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+~/Android/Sdk/emulator/emulator -avd InfiCon_Pixel_2_sdk_28
