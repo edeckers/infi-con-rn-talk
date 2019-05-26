@@ -22,7 +22,8 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   public render = () => (
     <View style={styles.container}>
-      <Welcome />
+      <Welcome where="InfiCon" />
+      <Welcome where="React" />
       <Text style={styles.instructions}>To get started, edit App.tsx</Text>
       <Text style={styles.instructions}>{instructions}</Text>
     </View>
